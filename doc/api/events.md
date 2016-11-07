@@ -564,6 +564,17 @@ to indicate an unlimited number of listeners.
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
+### emitter.foo([callback])
+<!-- YAML
+added: v8.0.0
+-->
+
+* `callback` {Function}
+
+Returns `'bar'` string synchronously if callback is omitted.
+When `callback` is specified, it is executed asynchronously and return `true`.
+The callback will receive the arguments `(err, 'bar')`. `err` is always `null`.
+
 [`net.Server`]: net.html#net_class_net_server
 [`fs.ReadStream`]: fs.html#fs_class_fs_readstream
 [`emitter.setMaxListeners(n)`]: #events_emitter_setmaxlisteners_n
