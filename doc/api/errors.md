@@ -463,6 +463,21 @@ referenced in `man 2 intro`. For example, an `ENOENT` error has an `errno` of
 
 Returns a string describing the [syscall][] that failed.
 
+#### error.address
+
+Returns a string describing the address that be not available.
+
+#### error.port
+
+Returns a number of the connection's port that refused (only when the port number is specified).
+
+For example:
+
+```js
+require('net').connect({port: 1234}).on('error', (err) => { console.error(err); });
+  // err will have the added properties of code, errno, syscall, address and port
+```
+
 ### Common System Errors
 
 This list is **not exhaustive**, but enumerates many of the common system
