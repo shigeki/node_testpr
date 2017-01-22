@@ -455,7 +455,7 @@ a sequence of capital letters, and may be referenced in `man 2 intro`.
 
 #### error.errno
 
-Returns a number corresponding to the **negated** error code, which may be
+Returns a number or a string corresponding to the **negated** error code, which may be
 referenced in `man 2 intro`. For example, an `ENOENT` error has an `errno` of
 `-2` because the error code for `ENOENT` is `2`.
 
