@@ -455,13 +455,28 @@ a sequence of capital letters, and may be referenced in `man 2 intro`.
 
 #### error.errno
 
-Returns a number corresponding to the **negated** error code, which may be
+Returns a number or a string corresponding to the **negated** error code, which may be
 referenced in `man 2 intro`. For example, an `ENOENT` error has an `errno` of
 `-2` because the error code for `ENOENT` is `2`.
 
 #### error.syscall
 
 Returns a string describing the [syscall][] that failed.
+
+#### error.address
+
+Returns a string describing the address that be not available.
+
+#### error.port
+
+Returns a number of the connection's port that refused (only when the port number is specified).
+
+For example:
+
+```js
+require('net').connect({port: 1234}).on('error', (err) => { console.error(err); });
+  // err will have the added properties of code, errno, syscall, address and port
+```
 
 ### Common System Errors
 
