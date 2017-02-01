@@ -255,7 +255,7 @@ The `error.message` property is the string description of error as set by callin
 The `message` passed to the constructor will also appear in the first line of
 the stack trace of the `Error`, however changing this property after the
 `Error` object is created *may not* change the first line of the stack trace
-(for example, when error.stack is set before this property is changed).
+(for example, when `error.stack` is set before this property is changed).
 
 ```js
 const err = new Error('The message');
@@ -460,7 +460,7 @@ The `error.code` property is a string representing the error code, which is alwa
 The `error.errno` property is a number or a string.
 The number corresponds to the **negated** error code. For example, an `ENOENT`
 error has an `errno` of `-2` because the error code for `ENOENT` is `2`.
-In case of a string, it is the same as error.code.
+In case of a string, it is the same as `error.code`.
 
 #### error.syscall
 
