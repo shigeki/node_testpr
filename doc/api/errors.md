@@ -250,21 +250,23 @@ not capture any frames.
 
 #### error.message
 
-Returns the string description of error as set by calling `new Error(message)`.
+The `error.message` property is the string description of error as set by calling
+`new Error(message)`.
 The `message` passed to the constructor will also appear in the first line of
 the stack trace of the `Error`, however changing this property after the
-`Error` object is created *may not* change the first line of the stack trace.
+`Error` object is created *may not* change the first line of the stack trace
+(for example, when `error.stack` is set before this property is changed).
 
 ```js
 const err = new Error('The message');
 console.log(err.message);
-  // Prints: The message
+// Prints: The message
 ```
 
 #### error.stack
 
-Returns a string describing the point in the code at which the `Error` was
-instantiated.
+The `error.stack` property is a string describing the point in the code at which
+the `Error` was instantiated.
 
 For example:
 
@@ -450,18 +452,34 @@ added properties.
 
 #### error.code
 
-Returns a string representing the error code, which is always `E` followed by
-a sequence of capital letters, and may be referenced in `man 2 intro`.
+The `error.code` property is a string representing the error code, which is always
+`E` followed by a sequence of capital letters.
 
 #### error.errno
 
-Returns a number corresponding to the **negated** error code, which may be
-referenced in `man 2 intro`. For example, an `ENOENT` error has an `errno` of
-`-2` because the error code for `ENOENT` is `2`.
+The `error.errno` property is a number or a string.
+The number corresponds to the **negated** error code. For example, an `ENOENT`
+error has an `errno` of `-2` because the error code for `ENOENT` is `2`.
+In case of a string, it is the same as `error.code`.
 
 #### error.syscall
 
-Returns a string describing the [syscall][] that failed.
+The `error.syscall` property is a string describing the [syscall][] that failed.
+
+#### error.path
+
+When present (e.g. in `fs` or `child_process`), the `error.path` property is a string
+containing a relevant invalid pathname.
+
+#### error.address
+
+When present (e.g. in `net` or `dgram`), the `error.address` property is a string
+describing the address to which the connection failed.
+
+#### error.port
+
+When present (e.g. in `net` or `dgram`), the `error.port` property is a number of
+the connection's port that is not available.
 
 ### Common System Errors
 
